@@ -16,6 +16,13 @@ import { S3Service } from './s3.service';
 export class S3Controller {
   constructor(private readonly s3Service: S3Service) {}
 
+  // Simple Upload and Download
+  @Post('upload')
+  @UseInterceptors(FileInterceptor('file'))
+  upload(@UploadedFile() file: Express.Multer.File) {
+    this.s3Service.upload(file);
+  }
+
   @Get('download/:filename')
   async download(
     @Param('filename') filename: string,
@@ -41,9 +48,14 @@ export class S3Controller {
       });
   }
 
-  @Post('upload')
-  @UseInterceptors(FileInterceptor('file'))
-  uploadFile(@UploadedFile() file: Express.Multer.File) {
-    this.s3Service.upload(file);
+  // Pre-Signed-Url Upload and Download
+  @Get('pre-signed-url/upload/:filename')
+  getPreSignedUpload(@Param('filename') filename: string) {
+    return this.s3Service.getPreSignedUpload(filename);
+  }
+
+  @Get('pre-signed-url/download/:filename')
+  getPreSignedDownload(@Param('filename') filename: string): string {
+    return this.s3Service.getPreSignedDownload(filename);
   }
 }

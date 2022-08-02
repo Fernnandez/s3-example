@@ -2,15 +2,15 @@ import { ActionIcon, Loader, TextInput, TextInputProps } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
 import { useState } from 'react';
 import { Bug, FileDownload, Search } from 'tabler-icons-react';
-import { download } from '../../services/upload';
+import { downloadPSU } from '../../services/s3';
 
-export function InputDownload(props: TextInputProps) {
+export function DownloadPSU(props: TextInputProps) {
   const [filename, setFilename] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleDownload = async () => {
     setLoading(true);
-    download(filename)
+    downloadPSU(filename)
       .then((response) => {
         const url = window.URL.createObjectURL(new Blob([response]));
         const link = document.createElement('a');

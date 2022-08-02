@@ -3,16 +3,16 @@ import { Dropzone, MIME_TYPES } from '@mantine/dropzone';
 import { showNotification } from '@mantine/notifications';
 import { useState } from 'react';
 import { Bug, Check, FileCheck, FileUpload } from 'tabler-icons-react';
-import { upload } from '../../services/upload';
+import { uploadPSU } from '../../services/s3';
 
-export function DropzoneButton() {
+export function UploadPSU() {
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
 
   async function handleFile() {
     if (file) {
       setLoading(true);
-      upload(file)
+      uploadPSU(file)
         .then(() => {
           showNotification({
             icon: <Check />,
