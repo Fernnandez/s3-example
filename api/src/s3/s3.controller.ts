@@ -49,13 +49,13 @@ export class S3Controller {
   }
 
   // Pre-Signed-Url Upload and Download
-  @Get('pre-signed-url/upload/:filename')
-  getPreSignedUpload(@Param('filename') filename: string) {
-    return this.s3Service.getPreSignedUpload(filename);
-  }
+  // @Get('pre-signed-url/upload/:filename')
+  // getPreSignedUpload(@Param('filename') filename: string) {
+  //   return this.s3Service.getPreSignedUpload(filename);
+  // }
 
-  @Get('pre-signed-url/download/:filename')
-  getPreSignedDownload(@Param('filename') filename: string): string {
-    return this.s3Service.getPreSignedDownload(filename);
-  }
+  // @Get('pre-signed-url/download/:filename')
+  // getPreSignedDownload(@Param('filename') filename: string): string {
+  //   return this.s3Service.getPreSignedDownload(filename);
+  // }
 }
