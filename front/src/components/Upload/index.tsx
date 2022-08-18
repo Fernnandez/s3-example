@@ -27,6 +27,7 @@ export function Upload() {
         })
         .finally(() => {
           setLoading(false);
+          setFile(null);
         });
     }
   }

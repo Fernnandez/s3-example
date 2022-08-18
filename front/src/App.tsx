@@ -22,10 +22,10 @@ function App() {
             }}
           >
             <Title>Upload and Download Files S3</Title>
-            <Upload />
-            <Download />
-            {/* <UploadPSU />
-            <DownloadPSU /> */}
+            {/* <Upload /> */}
+            {/* <Download /> */}
+            <UploadPSU />
+            <DownloadPSU />
           </Box>
         </NotificationsProvider>
       </MantineProvider>
