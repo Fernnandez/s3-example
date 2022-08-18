@@ -46,7 +46,6 @@ export class S3Service {
 
   // Pre-Signed-Url Upload and Download
   getPreSignedUpload(filename: string): string {
-    console.log(filename);
     const Key = path.join(this.destination, filename);
 
     return this.s3.getSignedUrl('putObject', {

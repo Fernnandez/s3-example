@@ -27,6 +27,7 @@ export function UploadPSU() {
         })
         .finally(() => {
           setLoading(false);
+          setFile(null);
         });
     }
   }
