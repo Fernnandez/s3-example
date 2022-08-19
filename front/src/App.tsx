@@ -1,9 +1,7 @@
 import { Box, MantineProvider, Title } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import { Download } from './components/Download';
-import { DownloadPSU } from './components/DownloadPSU';
 import { Upload } from './components/Upload';
-import { UploadPSU } from './components/UploadPSU';
 
 function App() {
   return (
@@ -24,8 +22,6 @@ function App() {
             <Title>Upload and Download Files S3</Title>
             <Upload />
             <Download />
-            {/* <UploadPSU />
-            <DownloadPSU /> */}
           </Box>
         </NotificationsProvider>
       </MantineProvider>
