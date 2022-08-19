@@ -23,28 +23,6 @@ export class S3Service {
     this.s3.upload = promisify(this.s3.upload.bind(this.s3));
   }
 
-  // Simple Upload and Download
-  async upload(file: Express.Multer.File): Promise<void> {
-    const Key = path.join(this.destination, file.originalname);
-
-    this.s3.upload({
-      Bucket: this.bucket,
-      Key,
-      Body: file.buffer,
-    });
-  }
-
-  async download(filename: string): Promise<Readable> {
-    const Key = path.join(this.destination, filename);
-    return this.s3
-      .getObject({
-        Bucket: this.bucket,
-        Key,
-      })
-      .createReadStream();
-  }
-
-  // Pre-Signed-Url Upload and Download
   getPreSignedUpload(filename: string): string {
     const Key = path.join(this.destination, filename);
 
