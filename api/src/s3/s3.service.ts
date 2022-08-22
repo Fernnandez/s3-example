@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { S3 } from 'aws-sdk';
 import * as path from 'path';
-import { Readable } from 'stream';
 import { promisify } from 'util';
 
 @Injectable()
