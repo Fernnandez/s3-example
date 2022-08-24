@@ -44,6 +44,21 @@ Em seguida, inice o projeto
 npm run start:dev
 ```
 
+## Mudando a implementação 🕹
+O projeto contém a implementação convencional e utilizando pre-signed-url para fazer upload e download
+
+Para modificar a estratégia utilizada é só mudar os componentes renderizados no App.tsx
+
+---
+
+fluxo convencioal
+>Download | Upload
+
+---
+fluxo pre-signed
+>DownloadPSU | UploadPSU
+
+
 ## Licença  📝
 
 [MIT](https://choosealicense.com/licenses/mit/)
